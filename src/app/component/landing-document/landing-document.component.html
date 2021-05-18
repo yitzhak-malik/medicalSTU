@@ -1,20 +1,29 @@
 
 <div  class="container center">
     <div class="row">
-<div class="col-4">
-<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fblogs.icrc.org%2Filot%2Fhe%2F2019%2F05%2F04%2F14620%2F&psig=AOvVaw1mmKJqie
-dXXAesoxgU82Sm&ust=1621001263612000&source=images&cd=vfe&ved=2ahUKEwj9xKC16sbwAhVS8hQKHSGIAbUQjRx6BAgAEAc" alt="ewre">
+      <div class=col-3></div>
+<div class="col-3">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmq-AbsLsXFL5o8JYiuTmxRhfO4BdG9hPqaA&usqp=CAU"
+ alt="ewre">
+</div>
+<div class="col-3">
+  <ul class="nav nav-tabs" >
+    <li class="nav-item">
+      <a [ngClass]="{'nav-link active':h,'nav-link':!h} "  (click)="h=!h; status='interns'">interns</a>
+    </li>
+    <li  class="nav-item">
+      <a [ngClass]="{'nav-link active':!h,'nav-link':h}"(click)="h=!h;  status='supervisors'">supervisors</a>
+    </li>
+  </ul>
+ <h4>welcome, {{status}}</h4>
+ <p>
+   lorem ipsom dolor sit amet,
+   consectetur adipiscing elit.integer at
+   pellentsque nisl.
+ </p>
+  <input class="btn btn-primary" type="butten" routerLink="sign-in" value="REGISTER NOW">
+  
 </div>
 
-<ul class="nav nav-tabs" >
-  <li class="nav-item">
-    <a [ngClass]="{'nav-link active':h,'nav-link':!h} "  (click)="h=!h">Active</a>
-  </li>
-  <li  class="nav-item">
-    <a [ngClass]="{'nav-link active':!h,'nav-link':h}"(click)="h=!h">Link</a>
-  </li>
-  
-</ul>
-<input type="butten" routerLink="sign-in" value="REGISTER NOW">
-</div>
-</div>
+
+

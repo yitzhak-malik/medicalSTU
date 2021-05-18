@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingDocumentComponent implements OnInit {
 h:boolean;
+status:string="interns";
   constructor() {
     this.h=true;
    }
