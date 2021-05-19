@@ -1,27 +1,29 @@
 <div class ="container">
-    <form ngForm=kkk()>
+    <form #ngForm='ngForm' (ngSubmit)='onSubmit()' >
     <div class ="row">
     <div class="col-4">
         <label for="idnumber">ID NUMBER</label>
-        <input id="idnumber" class="form-control form-control-sm " type="text" placeholder="ID NUMBER ">
+        <input name="idnumber" class="form-control form-control-sm " type="text" placeholder="ID NUMBER " [(ngModel)]='intern.id' required>
     </div>
     
     <div class="col-4">
         <label for="fullname">full name</label>
-        <input id="fullname" class="form-control form-control-sm " type="text" placeholder="full name ">
+        <input name="fullname" class="form-control form-control-sm " type="text" placeholder="full name " [(ngModel)]="intern.name" required>
     </div>
     
     <div class="col-4">
         <label for="passport">passport</label>
-        <input id="passport" class="form-control form-control-sm " type="text" placeholder="passport">
+        <input name="passport" class="form-control form-control-sm " type="text" placeholder="passport"  [(ngModel)]="intern.passport" required>
     </div>
    
     <div class="col-4">
         <label for="tel">tel</label>
-        <input id="tel" class="form-control form-control-sm " type="number" placeholder="tel">
+        <input name="tel" class="form-control form-control-sm " type="number" placeholder="tel"  [(ngModel)]="intern.tel" required  #oo>
     </div>
-    
-   
+    <div>
+        <input class="btn btn-primary" type="submit"  value="continunp" [disabled]='!ngForm.valid' >
+    </div>
+   {{oo.className}}
 </div>
 </form>
 </div>

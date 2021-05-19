@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InternModel } from 'src/app/interfaces/intern-model';
 
 @Component({
   selector: 'app-sign-in',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
-
-  constructor() { }
+  intern:InternModel;
+  constructor() { 
+    this.intern={
+      id:'',
+      name:'',
+      passport:'',
+      tel:0
+    }
+  }
 
   ngOnInit(): void {
+  }
+  onSubmit(){
+    console.log('lkkklk')
   }
 
 }
