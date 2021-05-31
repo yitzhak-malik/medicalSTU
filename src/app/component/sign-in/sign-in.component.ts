@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InternModel } from 'src/app/interfaces/intern-model';
+import { SignInService } from 'src/app/services/sign-in.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -8,7 +9,7 @@ import { InternModel } from 'src/app/interfaces/intern-model';
 })
 export class SignInComponent implements OnInit {
   intern:InternModel;
-  constructor() { 
+  constructor(private login:SignInService) { 
     this.intern={
       id:'',
       name:'',
@@ -20,7 +21,7 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(){
-    console.log('lkkklk')
+    this.login.rgisterLevelOne(this.intern)
   }
 
 }
