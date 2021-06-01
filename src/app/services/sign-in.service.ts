@@ -10,7 +10,7 @@ import { HttpServicService } from './http-servic.service';
 export class SignInService {
   intern:InternModel={
     id:'',
-    name:'',
+    fullName:'',
     passport:'',
     tel:0
   };

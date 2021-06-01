@@ -12,7 +12,7 @@ export class SignInComponent implements OnInit {
   constructor(private login:SignInService) { 
     this.intern={
       id:'',
-      name:'',
+      fullName:'',
       passport:'',
       tel:0
     }

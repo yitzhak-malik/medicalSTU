@@ -1,3 +1,16 @@
-
-<H3>hi{{user.fullname}}!</H3>
-<p></p>jdhdhg
+<div id="body">
+    <div>
+        <H3>hi  {{  intern.fullName}}!</H3>
+        <p>please type the mobile verifind code you recevied</p>
+    </div>
+    
+    <div>
+        <input type="text" name="number1" id="number1" [(ngModel)]="code[0]">
+        <input type="text" name="number2" id="number2" [(ngModel)]="code[1]">
+        <input type="text" name="number3" id="number3" [(ngModel)]="code[2]">
+        <input type="text" name="number4" id="number4" [(ngModel)]="code[3]">
+        
+    </div>
+    
+    <button class="btn btn-primary" style="margin:20px;">conttinue</button>
+</div>

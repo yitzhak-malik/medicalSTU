@@ -1,6 +1,6 @@
 export interface InternModel {
     id:string,
-    name:string,
+    fullName:string,
     passport: string,
     tel:number
 }
