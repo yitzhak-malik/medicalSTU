@@ -10,12 +10,17 @@ import { SignInService } from 'src/app/services/sign-in.service';
 export class AuthSMSComponent implements OnInit {
  code:string[]=[];
  intern:InternModel;
-  constructor(private signInService:SignInService,private e:ElementRef) {
-     this.intern=signInService.intern
-     this.e.nativeElement.focus()
-   }
+  constructor(private signInService:SignInService ) {
+     this.intern=this.signInService.intern
+  }
 
   ngOnInit(): void {
+  }
+  chekc(event:Event){
+    event.isTrusted
+
+    
+
   }
 
 }

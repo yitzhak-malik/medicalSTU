@@ -22,11 +22,17 @@ export class SignInService {
    }
   rgisterLevelOne(user:InternModel){
      this.intern=user;
-     this.http.httpAuth(user).subscribe(user=>{
+     this.http.httpPost<InternModel,loginModel>('/auth/chekUser',this.intern).subscribe(user=>{
       if(user._id) {
         this.user._id=user._id
         this.router.navigate(['/authSMS'])
+        console.log(user);
+        
      }
+     
+    },error=>{
+      console.log(error.error);
+      alert(error.error)
      
     })
 
