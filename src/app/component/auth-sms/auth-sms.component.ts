@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { InternModel } from 'src/app/interfaces/intern-model';
 import { SignInService } from 'src/app/services/sign-in.service';
 
@@ -16,10 +16,31 @@ export class AuthSMSComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  chekc(event:Event){
-    event.isTrusted
-
+  chekc(event:any){
+  if(+event.srcElement.value + 1 >= 1 && +event.srcElement.value + 1 <= 10 ){
+    let element;
+    if (event.code !== 'Backspace'){
+      element = event.srcElement.nextElementSibling;
+    }
+      
+      if (event.code === 'Backspace')
+      
+         element = event.srcElement.previousElementSibling;
+ 
+     if(element == null)
+         return;
+     else
+         element.focus();
+  }else{
+    event.srcElement.value=""
+  }
+     
+   
     
+    
+
+
+
 
   }
 
