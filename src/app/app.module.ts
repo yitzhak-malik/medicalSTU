@@ -9,6 +9,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LandingDocumentComponent } from './component/landing-document/landing-document.component';
 import { SignInComponent } from './component/sign-in/sign-in.component';
 import { AuthSMSComponent } from './component/auth-sms/auth-sms.component';
+import { AuthImgComponent } from './component/auth-img/auth-img.component';
+
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { AuthSMSComponent } from './component/auth-sms/auth-sms.component';
     AppComponent,
     LandingDocumentComponent,
     SignInComponent,
-    AuthSMSComponent
+    AuthSMSComponent,
+    AuthImgComponent,
+   
    
     
   ],

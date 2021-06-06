@@ -12,3 +12,10 @@ input{
     height: 25px;
     margin:5px ;
 }
+.red{
+background:rgb(245, 135, 135); 
+
+}
+.green{
+    background: #7ff0b0;
+}
