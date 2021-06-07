@@ -10,6 +10,7 @@ import { LandingDocumentComponent } from './component/landing-document/landing-d
 import { SignInComponent } from './component/sign-in/sign-in.component';
 import { AuthSMSComponent } from './component/auth-sms/auth-sms.component';
 import { AuthImgComponent } from './component/auth-img/auth-img.component';
+import { Questionnaire1Component } from './component/questionnaire1/questionnaire1.component';
 
 
 
@@ -20,6 +21,7 @@ import { AuthImgComponent } from './component/auth-img/auth-img.component';
     SignInComponent,
     AuthSMSComponent,
     AuthImgComponent,
+    Questionnaire1Component,
    
    
     

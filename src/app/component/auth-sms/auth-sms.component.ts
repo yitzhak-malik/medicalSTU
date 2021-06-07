@@ -31,7 +31,7 @@ export class AuthSMSComponent implements OnInit {
       element = event.srcElement.nextElementSibling;
       if(element ==null){
                 this.signInService.user.code =this.code.join('');
-                 return this.signInService.rgisterWithCodeSms().subscribe(user=>{
+                 this.signInService.rgisterWithCodeSms().subscribe(user=>{
                  this.green=true;
                   setTimeout( ()=>this.router.navigate(['/authIMG']),1000)
                 },error => {
