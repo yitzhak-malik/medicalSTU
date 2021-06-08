@@ -14,7 +14,7 @@ export class SignInComponent implements OnInit {
       id:'',
       fullName:'',
       passport:'',
-      tel:0
+      phoneNumber:''
     }
   }
 

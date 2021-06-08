@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SignInService } from 'src/app/services/sign-in.service';
 
 @Component({
   selector: 'app-questionnaire1',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Questionnaire1Component implements OnInit {
 
-  constructor() { }
+  constructor(public signInService:SignInService) { }
 
   ngOnInit(): void {
   }

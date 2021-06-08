@@ -14,7 +14,7 @@ export class SignInService {
     id:'',
     fullName:'',
     passport:'',
-    tel:0
+    phoneNumber:''
   };
   user:loginModel={
     }

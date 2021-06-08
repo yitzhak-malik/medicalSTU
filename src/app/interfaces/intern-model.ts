@@ -2,7 +2,7 @@ export interface InternModel {
     id:string,
     fullName:string,
     passport: string,
-    tel:number
+    phoneNumber:string
 }
 export interface loginModel{
     _id?:string,
