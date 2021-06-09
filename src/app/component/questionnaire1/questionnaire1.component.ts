@@ -8,7 +8,7 @@ import { SignInService } from 'src/app/services/sign-in.service';
 })
 export class Questionnaire1Component implements OnInit {
 
-  constructor(public signInService:SignInService) { }
+  constructor(public signInService: SignInService) { }
 
   ngOnInit(): void {
   }

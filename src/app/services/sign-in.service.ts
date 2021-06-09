@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { InternModel,loginModel } from '../interfaces/intern-model';
 import { HttpServicService } from './http-servic.service';
-import {tap}from 'rxjs/operators'
 import { Observable } from 'rxjs';
-import { HttpHeaderResponse } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
@@ -48,7 +47,8 @@ export class SignInService {
   rgisterEND(){
     this.http.httpPost<any,any>('/auth/imageAuth',{auth:this.user,user:this.intern}).subscribe(
       user=>{
-      this.http.token=user.token
+     console.log(user);
+
       this.router.navigate(['/Questionnaire1'])
       
       } ,err=>console.log(err)

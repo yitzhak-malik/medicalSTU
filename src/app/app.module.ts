@@ -13,6 +13,7 @@ import { AuthSMSComponent } from './component/auth-sms/auth-sms.component';
 import { AuthImgComponent } from './component/auth-img/auth-img.component';
 import { Questionnaire1Component } from './component/questionnaire1/questionnaire1.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Questionnaire2Component } from './component/questionnaire2/questionnaire2.component';
 
 
 
@@ -24,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AuthSMSComponent,
     AuthImgComponent,
     Questionnaire1Component,
+    Questionnaire2Component,
    
    
     
