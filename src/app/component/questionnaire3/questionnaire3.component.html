@@ -1,0 +1,41 @@
+<div class ="container">
+    <form #ngForm='ngForm' (ngSubmit)='done()' >
+    <div class ="row">
+    <div class="col-4">
+        <label for="medical">medical</label>
+        <input name="medical" class="form-control form-control-sm " type="text" placeholder="medical" [(ngModel)]='questionnaire.medical'>
+    </div>
+    <div class="col-4">
+        <label for="residency">residency</label>
+        <select name="residency" id="residency" class='form-control form-select'[(ngModel)]='questionnaire.residency'>
+            <option value="residency1">residency1</option>
+            <option value="residency2">residency2</option>
+            <option value="residency3">residency3</option>
+        </select>
+    </div>
+    
+    <div class="col-4">
+        <label for="department">department</label>
+        <select name="department" id="department" class='form-control form-select'[(ngModel)]='questionnaire.department'>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </div>
+    <div class="col-4">
+        <label for="yearInResidency">year In Residency</label>
+        <input #graduatiunYear name="graduatiunYear" id="graduatiunYear" type="range" max="5" [(ngModel)]='questionnaire.graduatiunYear'>
+      <span> &nbsp; &nbsp;{{graduatiunYear.value}}</span>
+    </div>
+   
+   
+    <br>
+    <br>
+    <br>
+    <div>
+        <input class="btn btn-primary" style="margin:20px;" type="submit"  value="done" >
+    </div>
+  
+</div>
+</form>
+</div>

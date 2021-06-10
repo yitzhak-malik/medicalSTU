@@ -17,7 +17,11 @@ export interface questionnaireModel extends Token{
     medical?:string,
     residency?:string,
     yearInResidency?:number,
-    department?:string
+    department?:string,
+    id?:string,
+    fullName?:string,
+    passport?:string,
+    phoneNumber?:string
 
 }
 export interface Token {

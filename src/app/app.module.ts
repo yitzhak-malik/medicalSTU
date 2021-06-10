@@ -14,6 +14,7 @@ import { AuthImgComponent } from './component/auth-img/auth-img.component';
 import { Questionnaire1Component } from './component/questionnaire1/questionnaire1.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Questionnaire2Component } from './component/questionnaire2/questionnaire2.component';
+import { Questionnaire3Component } from './component/questionnaire3/questionnaire3.component';
 
 
 
@@ -26,6 +27,7 @@ import { Questionnaire2Component } from './component/questionnaire2/questionnair
     AuthImgComponent,
     Questionnaire1Component,
     Questionnaire2Component,
+    Questionnaire3Component,
    
    
     
