@@ -10,7 +10,7 @@ import { QuestionnaireService } from 'src/app/services/questionnaire.service';
 export class Questionnaire3Component implements OnInit {
 
   questionnaire:questionnaireModel;
-  constructor(public questionnaireService:QuestionnaireService) {
+  constructor(private questionnaireService:QuestionnaireService) {
     
     this.questionnaire=this.questionnaireService.questionnaire;
     

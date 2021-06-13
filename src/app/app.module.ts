@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import{FormsModule}from '@angular/forms'
 import{HttpClientModule}from '@angular/common/http'
 import {MatIconModule} from '@angular/material/icon';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,7 +17,9 @@ import { Questionnaire1Component } from './component/questionnaire1/questionnair
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Questionnaire2Component } from './component/questionnaire2/questionnaire2.component';
 import { Questionnaire3Component } from './component/questionnaire3/questionnaire3.component';
-
+import { QuestionnaireDoneComponent } from './component/questionnaire-done/questionnaire-done.component';
+import { TestfileComponent } from './component/testfile/testfile.component';
+import { environment } from "../environments/environment";
 
 
 @NgModule({
@@ -28,6 +32,8 @@ import { Questionnaire3Component } from './component/questionnaire3/questionnair
     Questionnaire1Component,
     Questionnaire2Component,
     Questionnaire3Component,
+    QuestionnaireDoneComponent,
+    TestfileComponent,
    
    
     
@@ -39,7 +45,9 @@ import { Questionnaire3Component } from './component/questionnaire3/questionnair
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule
 
   ],
   providers: [],

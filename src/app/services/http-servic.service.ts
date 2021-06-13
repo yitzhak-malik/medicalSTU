@@ -17,16 +17,16 @@ export class HttpServicService {
 
    }
    httpPost<S,G extends Token>(path:string,data:S,headers?:{}):Observable<G>{
-    return this.http.post<G>(this.baseURL+path,data,this.getOptions(headers)).pipe(tap((data) => data? this.token = data.token || '':null))
+    return this.http.post<G>(this.baseURL+path,data,this.getOptions(headers)).pipe(tap((data) => data?data.token? this.token = data.token:null:null))
   }
   httpGet<G extends Token>(path:string,headers?:{}):Observable<G>{
-    return this.http.get<G>(this.baseURL+path,this.getOptions(headers)).pipe(tap((data) => data? this.token = data.token || '':null))
+    return this.http.get<G>(this.baseURL+path,this.getOptions(headers)).pipe(tap((data) =>  data?data.token? this.token = data.token:null:null))
   }
   httpPut<S,G extends Token>(path:string,data:S,headers?:{}):Observable<G>{
-    return this.http.put<G>(this.baseURL+path,data,this.getOptions(headers)).pipe(tap((data) => data? this.token = data.token || '':null))
+    return this.http.put<G>(this.baseURL+path,data,this.getOptions(headers)).pipe(tap((data) =>  data?data.token? this.token = data.token:null:null))
   }
   httpDelete<G extends Token>(path:string,headers?:{}):Observable<G>{
-    return this.http.delete<G>(this.baseURL+path,this.getOptions(headers)).pipe(tap((data) => data? this.token = data.token || '':null))
+    return this.http.delete<G>(this.baseURL+path,this.getOptions(headers)).pipe(tap((data) =>  data?data.token? this.token = data.token:null:null))
   }
 
 

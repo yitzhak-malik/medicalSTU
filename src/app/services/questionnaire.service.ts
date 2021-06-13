@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { questionnaireModel } from '../interfaces/intern-model';
 import { HttpServicService } from './http-servic.service';
 
@@ -11,7 +12,7 @@ export class QuestionnaireService {
   questionnaire:questionnaireModel={}
 
 
-  constructor(private http:HttpServicService) {
+  constructor(private http:HttpServicService, private router:Router) {
    
   }
  
@@ -32,9 +33,17 @@ export class QuestionnaireService {
     })
    }
    doneQuestionnaire(){
-console.log('done s');
+console.log('done s work');
 
-    this.http.httpPut("/api/users/updateQuestionnaire",this.questionnaire).subscribe(data=>console.log(data)
+    this.http.httpPut<questionnaireModel,any>("/api/users/updateQuestionnaire",this.questionnaire).subscribe(data=>{
+      console.log(data)
+      this.router.navigate(['/Questionnaire1/2/3/done'])
+    },err=>{
+      console.log(err);
+      this.router.navigate(['/Questionnaire1/2'])
+    }
+     
+
     )
    }
 }

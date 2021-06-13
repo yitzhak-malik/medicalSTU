@@ -1,4 +1,4 @@
-<div class ="container">
+<div class ="container bg-light">
     <form #ngForm='ngForm' (ngSubmit)='done()' >
     <div class ="row">
     <div class="col-4">
@@ -24,7 +24,7 @@
     </div>
     <div class="col-4">
         <label for="yearInResidency">year In Residency</label>
-        <input #graduatiunYear name="graduatiunYear" id="graduatiunYear" type="range" max="5" [(ngModel)]='questionnaire.graduatiunYear'>
+        <input #graduatiunYear name="yearInResidency" id="yearInResidency" type="range" max="5" [(ngModel)]='questionnaire.yearInResidency'>
       <span> &nbsp; &nbsp;{{graduatiunYear.value}}</span>
     </div>
    
