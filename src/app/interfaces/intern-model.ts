@@ -27,3 +27,7 @@ export interface questionnaireModel extends Token{
 export interface Token {
     token?:string
 }
+export interface smsModel extends Token{
+    intern:InternModel,
+    user:loginModel
+}

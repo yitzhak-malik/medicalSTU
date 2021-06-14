@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { InternModel,loginModel } from '../interfaces/intern-model';
+import { InternModel,loginModel, smsModel } from '../interfaces/intern-model';
 import { HttpServicService } from './http-servic.service';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 
 @Injectable({
@@ -54,5 +55,22 @@ export class SignInService {
       } ,err=>console.log(err)
 
     )
+  }
+  logIn(name){
+   
+    
+    console.log(name);
+    
+    return this.http.httpGet<smsModel>(`/auth/logIn/${name}`).pipe(tap(user=>{
+     if(user.intern){
+       this.intern=user.intern
+     }
+     if(user.user){
+      this.user=user.user
+     }
+    }))
+  }
+  loginWithCodeSms(){
+    return this.http.httpPost<loginModel,any>('/auth/chekCode',this.user)
   }
 }

@@ -20,6 +20,7 @@ import { Questionnaire3Component } from './component/questionnaire3/questionnair
 import { QuestionnaireDoneComponent } from './component/questionnaire-done/questionnaire-done.component';
 import { TestfileComponent } from './component/testfile/testfile.component';
 import { environment } from "../environments/environment";
+import { LogInComponent } from './component/log-in/log-in.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { environment } from "../environments/environment";
     Questionnaire3Component,
     QuestionnaireDoneComponent,
     TestfileComponent,
+    LogInComponent,
    
    
     
