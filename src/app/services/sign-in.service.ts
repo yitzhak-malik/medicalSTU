@@ -16,8 +16,7 @@ export class SignInService {
     passport:'',
     phoneNumber:''
   };
-  user:loginModel={
-    }
+  user:loginModel={}
 
   constructor(private http:HttpServicService,private router:Router) {
   
@@ -58,19 +57,21 @@ export class SignInService {
   }
   logIn(name){
    
-    
+    this.intern.id=name
     console.log(name);
     
-    return this.http.httpGet<smsModel>(`/auth/logIn/${name}`).pipe(tap(user=>{
-     if(user.intern){
-       this.intern=user.intern
-     }
-     if(user.user){
-      this.user=user.user
+    return this.http.httpGet<any>(`/auth/logIn/${name}`).pipe(tap(user=>{
+  
+     if(user){
+       console.log("get user");
+       
+       console.log(user);
+       
+      this.user=user
      }
     }))
   }
   loginWithCodeSms(){
-    return this.http.httpPost<loginModel,any>('/auth/chekCode',this.user)
+    return this.http.httpPost<any,InternModel>('/auth/chekCodeForLogin',this.user)
   }
 }

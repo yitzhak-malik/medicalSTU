@@ -16,6 +16,7 @@ export class AuthSMSComponent implements OnInit {
  authName;
  red:boolean=false
  green:boolean=false
+ nextPath:string;
   constructor(private signInService:SignInService, private router:Router,activatedRoute:ActivatedRoute ) {
      this.intern=this.signInService.intern
      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
@@ -38,8 +39,12 @@ export class AuthSMSComponent implements OnInit {
                 if(this.authName){
                   this.signInService.loginWithCodeSms().subscribe(user=>{
                     this.green=true;
-                     setTimeout( ()=>this.router.navigate(['']),1000)
+                    console.log(user);
+                    user.roleNumber==1?this.nextPath="test":this.nextPath='/';
+                     setTimeout( ()=>this.router.navigate([this.nextPath]),1000)
                    },error => {
+                     console.log(error);
+                     
                      this.red=true;
                      setTimeout( ()=>this.router.navigate([`/authSMS/${this.authName}`]),1000)
                    }

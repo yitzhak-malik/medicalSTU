@@ -2,7 +2,9 @@ export interface InternModel extends Token  {
     id:string,
     fullName:string,
     passport: string,
-    phoneNumber:string
+    phoneNumber:string,
+    roleNumber?:number
+
 }
 export interface loginModel extends Token {
     _id?:string,
