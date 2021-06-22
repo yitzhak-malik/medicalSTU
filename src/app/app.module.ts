@@ -21,6 +21,7 @@ import { QuestionnaireDoneComponent } from './component/questionnaire-done/quest
 import { TestfileComponent } from './component/testfile/testfile.component';
 import { environment } from "../environments/environment";
 import { LogInComponent } from './component/log-in/log-in.component';
+import { AdminComponent } from './component/admin/admin.component';
 
 
 @NgModule({
@@ -31,11 +32,12 @@ import { LogInComponent } from './component/log-in/log-in.component';
     AuthSMSComponent,
     AuthImgComponent,
     Questionnaire1Component,
-    Questionnaire2Component,
+    Questionnaire2Component, 
     Questionnaire3Component,
     QuestionnaireDoneComponent,
     TestfileComponent,
     LogInComponent,
+    AdminComponent,
    
    
     

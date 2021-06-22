@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminComponent } from './component/admin/admin.component';
 import { AuthImgComponent } from './component/auth-img/auth-img.component';
 import { AuthSMSComponent } from './component/auth-sms/auth-sms.component';
 import { LandingDocumentComponent } from './component/landing-document/landing-document.component';
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path:'Questionnaire1/2/3' ,component: Questionnaire3Component},
   {path:'Questionnaire1/2/3/done' ,component: QuestionnaireDoneComponent},
   {path:'test' ,component: TestfileComponent},
-  {path:'logIn' ,component: LogInComponent}
+  {path:'logIn' ,component: LogInComponent},
+  {path:'admin' ,component: AdminComponent}
 ];
 
 @NgModule({

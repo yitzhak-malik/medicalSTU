@@ -1,0 +1,55 @@
+<div class ="container border bg-light">
+    <h2>new supervisor</h2>
+    <form #ngForm1='ngForm' (ngSubmit)='createSupervisor()'>
+    <div class ="row">
+    <div class="col-4">
+        <label for="idnumber">ID NUMBER</label>
+        <input name="idnumber" class="form-control form-control-sm " type="text" placeholder="ID NUMBER " [(ngModel)]='supervisor.id' required>
+    </div>
+    
+    <div class="col-4">
+        <label for="fullname">full name</label>
+        <input name="fullname" class="form-control form-control-sm " type="text" placeholder="full name " [(ngModel)]="supervisor.fullName" required>
+    </div>
+    
+    <div class="col-4">
+        <label for="passport">passport</label>
+        <input name="passport" class="form-control form-control-sm " type="text" placeholder="passport"  [(ngModel)]="supervisor.passport" required>
+    </div>
+   
+    <div class="col-4">
+        <label for="tel">tel</label>
+        <input name="tel" class="form-control form-control-sm " type="tel" placeholder="tel"  [(ngModel)]="supervisor.phoneNumber" required  >
+    </div>
+    <div class="col-4">
+        <label for="academicName">academic/s name</label>
+        <input #theAcademic name="academicName" class="form-control form-control-sm " type="text" placeholder="academic Name " (change)='academics(theAcademic.value)' [(ngModel)]="supervisor.academics" required>
+    </div>
+    <div>
+        <input class="btn btn-primary m-5" type="submit"  value="create supervisor" [disabled]='!ngForm1.valid' >
+    </div>
+  
+</div>
+</form>
+</div>
+<br>
+<br>
+<br>
+<div class ="container border bg-light">
+    <h2>new academic</h2>
+    <form #ngForm2='ngForm' (ngSubmit)='createAcademic()'>
+    <div class ="row">
+    
+    
+    <div class="col-4">
+        <label for="name">name</label>
+        <input name="name" class="form-control form-control-sm " type="text" placeholder="academic name " [(ngModel)]="academic.name" required>
+    </div>
+    
+    <div>
+        <input class="btn btn-primary m-5" type="submit"  value="create academic" [disabled]='!ngForm2.valid' >
+    </div>  
+  
+</div>
+</form>
+</div>
