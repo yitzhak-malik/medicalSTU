@@ -8,7 +8,7 @@
     <div class="col-4">
         <label for="country">COUNTRY</label>
         <select name="country" id="country" class='form-control form-select'[(ngModel)]='questionnaire.country'>
-            <option value="israel">israel</option>
+            <option value="israel">israel </option>
             <option value="usa">usa</option>
             <option value="uk">uk</option>
         </select>
@@ -38,6 +38,12 @@
     
     <button class="btn btn-primary" style="margin:20px;"routerLink='3'>conttinue</button>
   
+    <!-- <mat-form-field appearance="fill">
+        <mat-label>Toppings</mat-label>
+        <mat-select [ngModel]="toppings" multiple>
+          <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+        </mat-select>
+      </mat-form-field> -->
 </div>
 </form>
 </div>

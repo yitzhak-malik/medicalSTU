@@ -24,7 +24,8 @@ const routes: Routes = [
   {path:'Questionnaire1/2/3/done' ,component: QuestionnaireDoneComponent},
   {path:'test' ,component: TestfileComponent},
   {path:'logIn' ,component: LogInComponent},
-  {path:'admin' ,component: AdminComponent}
+  {path:'admin/create/:id/:password' ,component: AdminComponent},
+  {path:'admin/login/:id/:password' ,component: AdminComponent}
 ];
 
 @NgModule({
