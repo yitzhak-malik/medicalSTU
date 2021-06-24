@@ -5,6 +5,7 @@ import{HttpClientModule}from '@angular/common/http'
 import {MatIconModule} from '@angular/material/icon';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import {MatSelectModule} from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -51,7 +52,8 @@ import { AdminComponent } from './component/admin/admin.component';
     BrowserAnimationsModule,
     MatIconModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    MatSelectModule
 
   ],
   providers: [],

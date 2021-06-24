@@ -36,4 +36,5 @@ export interface smsModel extends Token{
 }
 export interface academicModel extends Token{
     name?:string
+    academics?:string[]
 }
