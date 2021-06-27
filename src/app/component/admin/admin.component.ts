@@ -16,8 +16,8 @@ export class AdminComponent implements OnInit {
   path:string;
   work=false;
   message:string;
-  arrAcademics=['ssd']
-  academicList=['ssd','sdsd','sdsd']
+  arrAcademics:string[];
+  academicList:string[];
   constructor(private activatedRoute:ActivatedRoute,private http:HttpServicService) {
     this.supervisor={}
     this.academic={}
@@ -47,7 +47,7 @@ export class AdminComponent implements OnInit {
     
   }
   createSupervisor(){
-    console.log(this.supervisor);
+    this.http.httpPost(`/api/admin/createSupervisor`,{supervisor:this.supervisor,arrAcademics:this.arrAcademics}).subscribe()
     
   }
   academics(academic){
@@ -66,7 +66,8 @@ export class AdminComponent implements OnInit {
     
   }
   getAcademic(){
-    this.http.httpGet<academicModel>('/api/admin/getAllAcademic').subscribe((data)=>this.academicList=data.academics)
+    this.http.httpGet<academicModel>('/api/admin/getAllAcademic').subscribe((data)=>{this.academicList=data.academics
+    })
   }
   
 }

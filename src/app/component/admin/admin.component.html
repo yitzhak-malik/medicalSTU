@@ -22,10 +22,7 @@
             <label for="tel">tel</label>
             <input name="tel" class="form-control form-control-sm " type="tel" placeholder="tel"  [(ngModel)]="supervisor.phoneNumber" required  >
         </div>
-        <div class="col-4">
-            <label for="academicName">academic/s name</label>
-            <input #theAcademic name="academicName" class="form-control form-control-sm " type="text" placeholder="academic Name " (change)='academics(theAcademic.value)' [(ngModel)]="supervisor.academics" required>
-        </div>
+    
         <mat-form-field class='m-2 col-4' appearance="fill">
             <mat-label>academic/s name</mat-label>
             <mat-select  multiple  [(ngModel)]="arrAcademics" name='arrAcademics' #k (click)='hh(k.value)'>
