@@ -40,7 +40,7 @@ export class AuthSMSComponent implements OnInit {
                   this.signInService.loginWithCodeSms().subscribe(user=>{
                     this.green=true;
                     console.log(user);
-                    user.roleNumber==1?this.nextPath="test":this.nextPath='/';
+                    user.roleNumber==1?this.nextPath="test":this.nextPath='/Supervisor';
                      setTimeout( ()=>this.router.navigate([this.nextPath]),1000)
                    },error => {
                      console.log(error);

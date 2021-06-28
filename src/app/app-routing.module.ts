@@ -10,6 +10,7 @@ import { Questionnaire1Component } from './component/questionnaire1/questionnair
 import { Questionnaire2Component } from './component/questionnaire2/questionnaire2.component';
 import { Questionnaire3Component } from './component/questionnaire3/questionnaire3.component';
 import { SignInComponent } from './component/sign-in/sign-in.component';
+import { SupervisorComponent } from './component/supervisor/supervisor.component';
 import { TestfileComponent } from './component/testfile/testfile.component';
 
 const routes: Routes = [
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path:'test' ,component: TestfileComponent},
   {path:'logIn' ,component: LogInComponent},
   {path:'admin/create/:id/:password' ,component: AdminComponent},
-  {path:'admin/login/:id/:password' ,component: AdminComponent}
+  {path:'admin/login/:id/:password' ,component: AdminComponent},
+  {path:'Supervisor' ,component: SupervisorComponent}
 ];
 
 @NgModule({

@@ -23,6 +23,7 @@ import { TestfileComponent } from './component/testfile/testfile.component';
 import { environment } from "../environments/environment";
 import { LogInComponent } from './component/log-in/log-in.component';
 import { AdminComponent } from './component/admin/admin.component';
+import { SupervisorComponent } from './component/supervisor/supervisor.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { AdminComponent } from './component/admin/admin.component';
     TestfileComponent,
     LogInComponent,
     AdminComponent,
+    SupervisorComponent,
    
    
     
