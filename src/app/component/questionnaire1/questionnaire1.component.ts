@@ -13,9 +13,7 @@ export class Questionnaire1Component implements OnInit {
 
   ngOnInit(): void {
   }
-  getQuestionnaire(){
-    this.questionnaireService.getQuestionnaire()
-  } 
+ 
 
 
 }

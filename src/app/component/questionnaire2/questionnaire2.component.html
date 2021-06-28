@@ -1,5 +1,5 @@
 <div class ="container bg-light">
-    <form #ngForm='ngForm' (ngSubmit)='next()' >
+    <form #ngForm='ngForm'  >
     <div class ="row">
     <div class="col-4">
         <label for="age">AGE</label>
@@ -8,7 +8,7 @@
     <div class="col-4">
         <label for="country">COUNTRY</label>
         <select name="country" id="country" class='form-control form-select'[(ngModel)]='questionnaire.country'>
-            <option value="israel">israel</option>
+            <option value="israel">israel </option>
             <option value="usa">usa</option>
             <option value="uk">uk</option>
         </select>
@@ -38,6 +38,12 @@
     
     <button class="btn btn-primary" style="margin:20px;"routerLink='3'>conttinue</button>
   
+    <select class="form-select" multiple  size="1">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
 </div>
 </form>
 </div>

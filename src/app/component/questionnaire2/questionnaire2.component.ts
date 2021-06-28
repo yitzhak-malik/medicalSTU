@@ -9,8 +9,9 @@ import { QuestionnaireService } from 'src/app/services/questionnaire.service';
 })
 export class Questionnaire2Component implements OnInit {
   questionnaire:questionnaireModel;
+  toppingList=['hhh','jjj','kkk']
   constructor(public questionnaireService:QuestionnaireService) {
-    
+    this.questionnaireService.getQuestionnaire()
     this.questionnaire=this.questionnaireService.questionnaire;
     
    }

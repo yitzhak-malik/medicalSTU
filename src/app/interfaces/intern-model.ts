@@ -1,9 +1,10 @@
 export interface InternModel extends Token  {
-    id:string,
-    fullName:string,
-    passport: string,
-    phoneNumber:string,
-    roleNumber?:number
+    id?:string,
+    fullName?:string,
+    passport?: string,
+    phoneNumber?:string,
+    roleNumber?:number, 
+    academics?:string[],
 
 }
 export interface loginModel extends Token {
@@ -32,4 +33,8 @@ export interface Token {
 export interface smsModel extends Token{
     intern:InternModel,
     user:loginModel
+}
+export interface academicModel extends Token{
+    name?:string
+    academics?:string[]
 }

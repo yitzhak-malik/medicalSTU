@@ -5,6 +5,7 @@ import{HttpClientModule}from '@angular/common/http'
 import {MatIconModule} from '@angular/material/icon';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import {MatSelectModule} from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,8 @@ import { QuestionnaireDoneComponent } from './component/questionnaire-done/quest
 import { TestfileComponent } from './component/testfile/testfile.component';
 import { environment } from "../environments/environment";
 import { LogInComponent } from './component/log-in/log-in.component';
+import { AdminComponent } from './component/admin/admin.component';
+import { SupervisorComponent } from './component/supervisor/supervisor.component';
 
 
 @NgModule({
@@ -31,11 +34,13 @@ import { LogInComponent } from './component/log-in/log-in.component';
     AuthSMSComponent,
     AuthImgComponent,
     Questionnaire1Component,
-    Questionnaire2Component,
+    Questionnaire2Component, 
     Questionnaire3Component,
     QuestionnaireDoneComponent,
     TestfileComponent,
     LogInComponent,
+    AdminComponent,
+    SupervisorComponent,
    
    
     
@@ -49,7 +54,8 @@ import { LogInComponent } from './component/log-in/log-in.component';
     BrowserAnimationsModule,
     MatIconModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    MatSelectModule
 
   ],
   providers: [],

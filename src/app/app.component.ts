@@ -1,4 +1,5 @@
 
+import { HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -9,5 +10,5 @@ import { Component, Input } from '@angular/core';
 export class AppComponent {
   title = 'medicalStu';
 
-
 }
+
