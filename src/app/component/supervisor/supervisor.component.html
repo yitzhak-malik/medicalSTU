@@ -1,2 +1,16 @@
-<p>supervisor works!</p>
+<div *ngIf='academics.length>1' class="row container bg-light border">
+    <div class="col-4 p-2">
+        <label for="academic">CHOISE ACADEMIC</label>
+        <select name="academic" id="academic" class='form-control form-select' [(ngModel)]='academic'>
+            <option *ngFor="let academic of academics">{{academic.name}}</option>
+        </select>
+    </div>
+</div>
+
+
+
+
+
+
+
 <h1 *ngFor="let academic of academics">{{academic.name}}</h1>

@@ -7,13 +7,17 @@ import { HttpServicService } from 'src/app/services/http-servic.service';
   styleUrls: ['./supervisor.component.css']
 })
 export class SupervisorComponent implements OnInit {
-  academics:object
+  academics:object[]
+  academic:String
   constructor(private http:HttpServicService) {
-    this.http.httpGet('/api/supervisor/getAllAcademics').subscribe((s)=>{console.log(s);this.academics=s}
-    )
-   }
-
+  }
+  
   ngOnInit(): void {
+    this.http.httpGet<any>('/api/supervisor/getAllAcademics').subscribe((academics)=>{
+      this.academics=academics;
+    
+    })
+
   }
 
 }

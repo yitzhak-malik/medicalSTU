@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { questionnaireModel } from 'src/app/interfaces/intern-model';
+import { HttpServicService } from 'src/app/services/http-servic.service';
 import { QuestionnaireService } from 'src/app/services/questionnaire.service';
 
 @Component({
@@ -9,16 +10,21 @@ import { QuestionnaireService } from 'src/app/services/questionnaire.service';
 })
 export class Questionnaire2Component implements OnInit {
   questionnaire:questionnaireModel;
-  toppingList=['hhh','jjj','kkk']
-  constructor(public questionnaireService:QuestionnaireService) {
+  academics:object[]
+  constructor(public questionnaireService:QuestionnaireService, private http:HttpServicService) {
     this.questionnaireService.getQuestionnaire()
     this.questionnaire=this.questionnaireService.questionnaire;
     
    }
 
   ngOnInit(): void {
+    this.http.httpGet<any>('/api/users/getAllAcademics').subscribe((academics)=>{
+      this.academics=academics;
+    console.log(this.academics);
     
+    },err=>console.log(err)
+    )
   }
-  
+
 
 }
