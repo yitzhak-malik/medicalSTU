@@ -1,6 +1,6 @@
 import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { InternModel } from 'src/app/interfaces/intern-model';
 import { SignInService } from 'src/app/services/sign-in.service';
 
@@ -13,12 +13,17 @@ export class AuthSMSComponent implements OnInit {
 
  code:string[]=[];
  intern:InternModel;
+ authName;
  red:boolean=false
  green:boolean=false
-  constructor(private signInService:SignInService, private router:Router ) {
+ nextPath:string;
+  constructor(private signInService:SignInService, private router:Router,activatedRoute:ActivatedRoute ) {
      this.intern=this.signInService.intern
      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
      this.router.onSameUrlNavigation= 'reload';
+
+     activatedRoute.paramMap.subscribe(Rpar=> this.authName=Rpar.get('name'))
+     
      
   }
 
@@ -31,14 +36,30 @@ export class AuthSMSComponent implements OnInit {
       element = event.srcElement.nextElementSibling;
       if(element ==null){
                 this.signInService.user.code =this.code.join('');
-                 this.signInService.rgisterWithCodeSms().subscribe(user=>{
-                 this.green=true;
-                  setTimeout( ()=>this.router.navigate(['/authIMG']),1000)
-                },error => {
-                  this.red=true;
-                  setTimeout( ()=>this.router.navigate(['/authSMS']),1000)
+                if(this.authName){
+                  this.signInService.loginWithCodeSms().subscribe(user=>{
+                    this.green=true;
+                    console.log(user);
+                    user.roleNumber==1?this.nextPath="test":this.nextPath='/';
+                     setTimeout( ()=>this.router.navigate([this.nextPath]),1000)
+                   },error => {
+                     console.log(error);
+                     
+                     this.red=true;
+                     setTimeout( ()=>this.router.navigate([`/authSMS/${this.authName}`]),1000)
+                   }
+                   )
                 }
-                )
+                if(!this.authName){
+                  this.signInService.rgisterWithCodeSms().subscribe(user=>{
+                    this.green=true;
+                     setTimeout( ()=>this.router.navigate(['/authIMG']),1000)
+                   },error => {
+                     this.red=true;
+                     setTimeout( ()=>this.router.navigate(['/authSMS']),1000)
+                   }
+                   )
+                }
       }
 
     }
@@ -87,4 +108,5 @@ export class AuthSMSComponent implements OnInit {
        
   
   //   }
+  
 }

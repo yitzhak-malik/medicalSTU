@@ -1,1 +1,43 @@
-{{questionnaireService.questionnaire.age}}
+<div class ="container bg-light">
+    <form #ngForm='ngForm' (ngSubmit)='next()' >
+    <div class ="row">
+    <div class="col-4">
+        <label for="age">AGE</label>
+        <input name="age" class="form-control form-control-sm " type="number" placeholder="AGE " [(ngModel)]='questionnaire.age' required>
+    </div>
+    <div class="col-4">
+        <label for="country">COUNTRY</label>
+        <select name="country" id="country" class='form-control form-select'[(ngModel)]='questionnaire.country'>
+            <option value="israel">israel</option>
+            <option value="usa">usa</option>
+            <option value="uk">uk</option>
+        </select>
+    </div>
+    
+    <div class="col-4">
+        <label for="city">CITY</label>
+        <select name="city" id="city" class='form-control form-select'[(ngModel)]='questionnaire.city'>
+            <option value="jerusalem">jerusalem</option>
+            <option value="tel-aviv">tel-aviv</option>
+            <option value="chifa">chifa</option>
+        </select>
+    </div>
+    
+    <div class="col-4">
+        <label for="">graduatiun Year</label>
+        <input name="graduatiunYear" class="form-control form-control-sm " type="number" placeholder="passport"  [(ngModel)]="questionnaire.graduatiunYear" >
+    </div>
+    <div class="col-4">
+        <label for="academic">academic</label>
+        <select name="academic" id="academic" class='form-control form-select'[(ngModel)]='questionnaire.academic'>
+            <option value="jerusalem">jerusalem</option>
+            <option value="tel">tel</option>
+            <option value="chifa">chifa</option>
+        </select>
+    </div>
+    
+    <button class="btn btn-primary" style="margin:20px;"routerLink='3'>conttinue</button>
+  
+</div>
+</form>
+</div>

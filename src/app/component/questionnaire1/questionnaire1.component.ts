@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { QuestionnaireService } from 'src/app/services/questionnaire.service';
 import { SignInService } from 'src/app/services/sign-in.service';
 
 @Component({
@@ -8,9 +9,13 @@ import { SignInService } from 'src/app/services/sign-in.service';
 })
 export class Questionnaire1Component implements OnInit {
 
-  constructor(public signInService: SignInService) { }
+  constructor(public signInService: SignInService,private questionnaireService:QuestionnaireService ) { }
 
   ngOnInit(): void {
   }
+  getQuestionnaire(){
+    this.questionnaireService.getQuestionnaire()
+  } 
+
 
 }

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "madical-jbh": {
+      "hosting": {
+        "medicalStu": [
+          "madical-jbh"
+        ]
+      }
+    }
+  }
+}

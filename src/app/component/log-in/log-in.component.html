@@ -1,0 +1,17 @@
+<div class ="container bg-light">
+    <form #ngForm='ngForm'  >
+    <div class ="row">
+    <div class="col">
+        <label for="name">id ,phon number or email</label>
+        <input #name name="name" class="form-control form-control-sm " type="text" placeholder="id ,phon number or email"  required>
+        <p *ngIf='message'>{{message}}</p>
+       
+    </div>
+ 
+
+    
+    <button class="btn btn-primary" style="margin:20px;"  (click)='logIn(name.value)'>log-in</button>
+  
+</div>
+</form>
+</div>

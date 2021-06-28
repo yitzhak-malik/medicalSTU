@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import{FormsModule}from '@angular/forms'
 import{HttpClientModule}from '@angular/common/http'
 import {MatIconModule} from '@angular/material/icon';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +16,11 @@ import { AuthImgComponent } from './component/auth-img/auth-img.component';
 import { Questionnaire1Component } from './component/questionnaire1/questionnaire1.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Questionnaire2Component } from './component/questionnaire2/questionnaire2.component';
-
+import { Questionnaire3Component } from './component/questionnaire3/questionnaire3.component';
+import { QuestionnaireDoneComponent } from './component/questionnaire-done/questionnaire-done.component';
+import { TestfileComponent } from './component/testfile/testfile.component';
+import { environment } from "../environments/environment";
+import { LogInComponent } from './component/log-in/log-in.component';
 
 
 @NgModule({
@@ -26,6 +32,10 @@ import { Questionnaire2Component } from './component/questionnaire2/questionnair
     AuthImgComponent,
     Questionnaire1Component,
     Questionnaire2Component,
+    Questionnaire3Component,
+    QuestionnaireDoneComponent,
+    TestfileComponent,
+    LogInComponent,
    
    
     
@@ -37,7 +47,9 @@ import { Questionnaire2Component } from './component/questionnaire2/questionnair
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule
 
   ],
   providers: [],
