@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { academicModel, InternModel } from 'src/app/interfaces/intern-model';
 import { HttpServicService } from 'src/app/services/http-servic.service';
+import { TableService } from 'src/app/services/table.service';
 
 @Component({
   selector: 'app-supervisor',
@@ -11,10 +12,12 @@ export class SupervisorComponent implements OnInit {
   academics:object[]=[{}]
   academic:String
   interns:InternModel[]
-  classes:academicModel[]=[{}]
+  classes:academicModel[]=[]
   class:string
   CreateNewClass=false;
-  constructor(private http:HttpServicService) {
+  nameNewClass:string
+ 
+  constructor(private http:HttpServicService,private table:TableService) {
   }
   
   ngOnInit(): void {
@@ -32,7 +35,32 @@ export class SupervisorComponent implements OnInit {
     this.http.httpPost<any,any>('/api/supervisor/getInterns',{name:this.academic}).subscribe((interns)=>{
       this.interns=interns;
       console.log(interns)})
+      this.table.newClass=[]
 
+  }
+  getClasses(){
+    console.log(this.academic);
+    this.http.httpPost<any,any>('/api/supervisor/getClasses',{academic:this.academic}).subscribe((classes)=>{
+      this.classes=classes;
+      console.log(classes)})
+     
+
+  }
+  createClass(){
+    
+    this.http.httpPost<any,any>('/api/supervisor/createClass',{namesInterns:this.table.newClass,academic:this.academic,nameClass:this.nameNewClass}).subscribe((classs)=>console.log(classs)
+    )
+  }
+  clear(){
+    this.table.newClass=[]
+  } 
+  getInternsOfClass(){
+    console.log(this.class,this.classes.filter((oneclass)=>oneclass.name==this.class)[0]._id);
+    
+    this.http.httpPost<any,any>('/api/supervisor/getInternsOfClass',{_id:this.classes.filter((oneclass)=>oneclass.name==this.class)[0]._id}).subscribe((interns)=>{
+      this.interns=interns;
+      console.log(interns,'int')
+    })
   }
 
 }
