@@ -1,7 +1,7 @@
 <div class="row container bg-light border ">
     <div class="col-4 p-2"  *ngIf='academics[1]'>
         <label for="academic">CHOISE ACADEMIC</label>
-        <select name="academic" id="academic" class='form-control form-select' [(ngModel)]='academic' (change)='getInterns(); getClasses()'>
+        <select name="academic" id="academic" class='form-control form-select' [(ngModel)]='academic' (change)='getInterns(); getClasses();  clear() '>
             <option *ngFor="let academic of academics">{{academic.name}}</option>
         </select>
     </div>
@@ -11,7 +11,7 @@
     <div class="col-4 p-2"  *ngIf='classes[0] && !CreateNewClass'>
         <label for="classes">CHOISE CLASS</label>
         <select name="classes" id="classes" class='form-control form-select' [(ngModel)]='class' (change)='getInternsOfClass()'>
-            <option selected>all interns</option>
+            <option selected>all interns of academic</option>
             <option  *ngFor="let class of classes">{{class.name}}</option>
         </select>
     </div>
@@ -22,18 +22,22 @@
    
     <div class="row col-8" *ngIf=CreateNewClass>
         <div  class="col-6" >
-            <label  for="nameNewClass">name new class</label>
-            <input name="nameNewClass" class="form-control form-control-sm " type="text" placeholder="name New Class"  [(ngModel)]="nameNewClass" >
+            <label  for="nameNewClass">name new class</label><div  *ngIf='classNameExists'>class name exists</div>
+            <input name="nameNewClass" class="form-control form-control-sm " type="text" placeholder="name New Class" (change)='checkClassNameExists()' [(ngModel)]="nameNewClass" >
         </div>
-        <div class="col-6 mt-3">
-            <button   class="btn btn-success" (click)='CreateNewClass=!CreateNewClass; createClass()'>create  class</button>
-            <button   class="btn btn-danger ml-4" (click)='CreateNewClass=!CreateNewClass; '>cansel</button>
+        <div class="row col-6 mt-3">
+            <div class=col-6>
+                <button   class="btn btn-success" (click)='CreateNewClass=!CreateNewClass; createClass()' [disabled]='!nameNewClass || !table.newClass[0] || classNameExists '>create  class</button>
+            </div>
+            <div class=col-6>
+                <button   class="btn btn-danger ml-1" (click)='CreateNewClass=!CreateNewClass; ' >cansel</button>
+            </div>
         </div>
         
     </div>
 </div>
 
-<div class="row" *ngIf="interns">
+<div class="row" *ngIf="interns[0]">
     <table class="table col-8">
         <thead>
             <tr>

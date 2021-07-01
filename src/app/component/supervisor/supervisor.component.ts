@@ -11,13 +11,14 @@ import { TableService } from 'src/app/services/table.service';
 export class SupervisorComponent implements OnInit {
   academics:object[]=[{}]
   academic:String
-  interns:InternModel[]
+  interns:InternModel[]=[]
   classes:academicModel[]=[]
   class:string
   CreateNewClass=false;
   nameNewClass:string
+  classNameExists=false
  
-  constructor(private http:HttpServicService,private table:TableService) {
+  constructor(private http:HttpServicService,public table:TableService) {
   }
   
   ngOnInit(): void {
@@ -26,6 +27,7 @@ export class SupervisorComponent implements OnInit {
       if(!this.academics[1]){
         this.academic=this.academics[0]['name']
         this.getInterns()
+        this.getClasses()
       }
     })
     
@@ -42,25 +44,41 @@ export class SupervisorComponent implements OnInit {
     console.log(this.academic);
     this.http.httpPost<any,any>('/api/supervisor/getClasses',{academic:this.academic}).subscribe((classes)=>{
       this.classes=classes;
-      console.log(classes)})
+      console.log(classes,"this is class")})
      
 
   }
   createClass(){
-    
-    this.http.httpPost<any,any>('/api/supervisor/createClass',{namesInterns:this.table.newClass,academic:this.academic,nameClass:this.nameNewClass}).subscribe((classs)=>console.log(classs)
-    )
+    if(!this.classes.filter(thisClass=>thisClass.name==this.nameNewClass)[0] && this.academic ){
+
+      this.http.httpPost<any,any>('/api/supervisor/createClass',{namesInterns:this.table.newClass,academic:this.academic,nameClass:this.nameNewClass }).subscribe((classs)=>{
+      this.getClasses()
+      this.clear()
+      })
+    }
   }
   clear(){
     this.table.newClass=[]
+    this.nameNewClass=''
   } 
   getInternsOfClass(){
-    console.log(this.class,this.classes.filter((oneclass)=>oneclass.name==this.class)[0]._id);
-    
-    this.http.httpPost<any,any>('/api/supervisor/getInternsOfClass',{_id:this.classes.filter((oneclass)=>oneclass.name==this.class)[0]._id}).subscribe((interns)=>{
-      this.interns=interns;
-      console.log(interns,'int')
-    })
+    if(this.class!='all interns of academic'){
+      
+      console.log(this.class,this.classes.filter((oneclass)=>oneclass.name==this.class)[0]._id,'otry');
+      
+      this.http.httpPost<any,any>('/api/supervisor/getInternsOfClass',{_id:this.classes.filter((oneclass)=>oneclass.name==this.class)[0]._id}).subscribe((interns)=>{
+        this.interns=interns;
+        console.log(interns,'int')
+      })
+    }else{
+    this.getInterns()
+    }
+
+  }
+  checkClassNameExists(){
+   this.classNameExists = this.classes.filter((oneclass)=>oneclass.name==this.nameNewClass)[0] ? true : false;
+   
+   
   }
 
 }
