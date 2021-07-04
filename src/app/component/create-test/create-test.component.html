@@ -1,0 +1,30 @@
+<div class ="container bg-light">
+    <form #ngForm='ngForm'  >
+    <div class ="row">
+    <div class="col-4">
+        <label for="testName">test Name</label>
+        <input name="testName" class="form-control form-control-sm " type="text" placeholder="testName " [(ngModel)]='newTest.testName' required>
+    </div>
+    <div class="col-4">
+        <label for="subject">subject</label>
+        <input name="subject" class="form-control form-control-sm " type="text" placeholder="subject" [(ngModel)]='newTest.subject' required>
+    </div>
+    <div class= mt-4>
+        <input type="file" (change)='choiseFile($event)'  required>
+    </div>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <div class='col-8 m-4'>
+        <button class="btn btn-success" 
+        [disabled]='!ngForm.valid' 
+        >create test</button>
+    </div>
+  
+ 
+</div>
+</form>
+</div>

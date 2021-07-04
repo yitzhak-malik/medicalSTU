@@ -25,6 +25,7 @@ import { LogInComponent } from './component/log-in/log-in.component';
 import { AdminComponent } from './component/admin/admin.component';
 import { SupervisorComponent } from './component/supervisor/supervisor.component';
 import { TableComponent } from './component/table/table.component';
+import { CreateTestComponent } from './component/create-test/create-test.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { TableComponent } from './component/table/table.component';
     AdminComponent,
     SupervisorComponent,
     TableComponent,
+    CreateTestComponent,
    
    
     

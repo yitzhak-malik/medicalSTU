@@ -17,6 +17,7 @@ export class SupervisorComponent implements OnInit {
   CreateNewClass=false;
   nameNewClass:string
   classNameExists=false
+  createTest=false
  
   constructor(private http:HttpServicService,public table:TableService) {
   }
@@ -60,6 +61,7 @@ export class SupervisorComponent implements OnInit {
   clear(){
     this.table.newClass=[]
     this.nameNewClass=''
+    this.class=''
   } 
   getInternsOfClass(){
     if(this.class!='all interns of academic'){
