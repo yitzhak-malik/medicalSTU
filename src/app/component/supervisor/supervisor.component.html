@@ -47,17 +47,19 @@
         </div>
 
     </div>
-    <div  *ngIf='createTest && class'>
+    <div  *ngIf='createTest'>
         <div class="row mt-3">
        
             <div class=col-4>
-                <button class="btn btn-danger ml-1" (click)='createTest=!createTest; '>cansel</button>
+                <button class="btn btn-danger ml-1" (click)='createTest=!createTest;'>cansel</button>
             </div>
         </div>
 
     </div>
 </div>
-<app-create-test [_idClass]=_idClass></app-create-test>
+<div *ngIf='createTest'>
+    <app-create-test  [_idClass]='_idClass' (create)="notCreateTest($event)"></app-create-test>
+</div>
 <div class="row" *ngIf="interns[0]">
     <table class="table col-8">
         <thead>

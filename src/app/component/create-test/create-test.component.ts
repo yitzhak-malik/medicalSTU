@@ -12,16 +12,18 @@ import { HttpServicService } from 'src/app/services/http-servic.service';
   styleUrls: ['./create-test.component.css']
 })
 export class CreateTestComponent implements OnInit {
- @Input() _idClass:string='onlyTest'
+ @Input() _idClass:string
  @Output() create:EventEmitter<boolean>= new EventEmitter<boolean>()
   newTest:testModel={}
   theFile;
   message:string;
   constructor(private storge:AngularFireStorage,private http:HttpServicService) {
-    this.newTest._idClass=this._idClass
-   }
-
+    
+  }
+  
   ngOnInit(): void {
+    this.newTest._idClass=this._idClass
+    console.log(this._idClass);
   }
   choiseFile(event){
    this.theFile = event.target.files[0]

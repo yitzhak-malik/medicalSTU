@@ -18,7 +18,7 @@ export class SupervisorComponent implements OnInit {
   nameNewClass:string
   classNameExists=false
   createTest=false
-  _idClass:string
+  _idClass:string='llll'
   constructor(private http:HttpServicService,public table:TableService) {
   }
   
@@ -66,6 +66,8 @@ export class SupervisorComponent implements OnInit {
   getInternsOfClass(){
     if(this.class!='all interns of academic'){
       this._idClass=this.classes.filter((oneclass)=>oneclass.name==this.class)[0]._id
+      console.log(this._idClass,'idclass');
+      
       console.log(this.class,this.classes.filter((oneclass)=>oneclass.name==this.class)[0]._id,'otry');
       
       this.http.httpPost<any,any>('/api/supervisor/getInternsOfClass',{_id:this.classes.filter((oneclass)=>oneclass.name==this.class)[0]._id}).subscribe((interns)=>{
@@ -79,8 +81,10 @@ export class SupervisorComponent implements OnInit {
   }
   checkClassNameExists(){
    this.classNameExists = this.classes.filter((oneclass)=>oneclass.name==this.nameNewClass)[0] ? true : false;
-   
-   
+  }
+  notCreateTest(event){
+    
+    this.createTest=event
   }
 
 }
