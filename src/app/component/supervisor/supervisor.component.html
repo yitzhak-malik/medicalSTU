@@ -60,21 +60,64 @@
 <div *ngIf='createTest'>
     <app-create-test  [_idClass]='_idClass' (create)="notCreateTest($event)"></app-create-test>
 </div>
-<div class="row" *ngIf="interns[0]">
-    <table class="table col-8">
+
+<div class="row m" *ngIf="interns[0]">
+    <div class='col-5'>
+
+        <table class=" table  table-bordered">
+            <thead>
+                <tr>
+                    <th class="col-4">NAME</th>
+                    <th class="col-4">ID</th>
+                    <th class="col-4"></th>
+                </tr>
+            </thead>
+        </table>
+        <table class=" table  table-bordered">
+            <tbody>
+                <div *ngFor="let intern of interns">          
+                        <app-table class='row' [obj]=intern [createClass]='CreateNewClass'></app-table>
+                </div>
+            </tbody>
+
+        </table>
+    </div>
+
+    <table class="col-6 ml-4 col-5 table  table-bordered">
         <thead>
             <tr>
-                <th class="col-4">NAME</th>
-                <th class="col-4">ID</th>
-                <th class="col-4"></th>
+                <th class=''>test name</th>
+                <th class=''>subject</th>
+                <th class=''>date</th>
+               
             </tr>
         </thead>
-        <tbody>
-            <tr *ngFor="let intern of interns">
-                <app-table class='row' [obj]=intern [createClass]='CreateNewClass'></app-table>
-            </tr>
-        </tbody>
+        <tbody >
+            <ng-container *ngFor='let test of tests'>
+                <tr >
+                    <td>{{test.testName}}</td>
+                    <td>{{test.subject}}</td>
+                    <td>{{test.date | date }}</td>
+                    <td><button class="btn btn-primary "  >Download</button></td>
+                    <td ><mat-icon  (click)='test.k=!test.k' *ngIf='!test.k'>expand_more</mat-icon><mat-icon (click)='test.k=!test.k' *ngIf='test.k'>expand_less</mat-icon></td>
+                </tr>
+                <ng-container *ngIf='test.k'>
+                    <tr>
+                        <th>name</th>
+                        <th>id</th>
+                        <th>score</th>
+                        <th></th>
+                    </tr>
+                    <tr  *ngFor='let test of test.backTest'>
+                        <td>{{test.name}}</td>
+                        <td>{{test.id}}</td>
+                        <td>{{test.score}}</td>
+                        <td><button class="btn btn-warning" >check</button></td>
+                    </tr>
+                </ng-container>
 
+            </ng-container>
+        </tbody>
     </table>
 
 </div>

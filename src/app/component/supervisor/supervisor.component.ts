@@ -18,7 +18,61 @@ export class SupervisorComponent implements OnInit {
   nameNewClass:string
   classNameExists=false
   createTest=false
-  _idClass:string='llll'
+  _idClass:string
+  tests=[{   
+        'date':'2021-07-06T11:20:55.729+00:00',
+        'testName':"first",
+        'subject':"ioiouio",
+        t:[{   
+          'date':'11',
+          'testName':"first",
+          'subject':"ioiouio"},
+          {   
+            'date':'11',
+            'testName':"first",
+            'subject':"ioiouio"},
+            {   
+              'date':'11',
+              'testName':"first",
+              'subject':"ioiouio"} ]
+      },
+  {   
+        'date':'2021-07-06T11:20:55.729+00:00',
+        'testName':"first",
+        'subject':"ioiouio",
+        t:[{   
+          'date':'11',
+          'testName':"first",
+          'subject':"ioiouio"},
+          {   
+            'date':'11',
+            'testName':"first",
+            'subject':"ioiouio"},
+            {   
+              'date':'11',
+              'testName':"first",
+              'subject':"ioiouio"}  ]
+      },
+  {   
+        'date':'2021-07-06T11:20:55.729+00:00',
+        'testName':"first",
+        'subject':"ioiouio",
+        t:[{   
+          'date':'11',
+          'testName':"first",
+          'subject':"ioiouio"},
+          {   
+            'date':'11',
+            'testName':"first",
+            'subject':"ioiouio"},
+            {   
+              'date':'11',
+              'testName':"first",
+              'subject':"ioiouio"}]  
+      },
+
+ ]
+      
   constructor(private http:HttpServicService,public table:TableService) {
   }
   
@@ -73,6 +127,7 @@ export class SupervisorComponent implements OnInit {
       this.http.httpPost<any,any>('/api/supervisor/getInternsOfClass',{_id:this.classes.filter((oneclass)=>oneclass.name==this.class)[0]._id}).subscribe((interns)=>{
         this.interns=interns;
         console.log(interns,'int')
+        this.getTestOfClass()
       })
     }else{
     this.getInterns()
@@ -85,6 +140,17 @@ export class SupervisorComponent implements OnInit {
   notCreateTest(event){
     
     this.createTest=event
+  }
+  getTestOfClass(){
+    this.http.httpPost<any,any>('/api/supervisor/getTestOfClass',{_idClass:this._idClass}).subscribe(
+      tests=>
+          {   
+          console.log(tests,"tests")
+          this.tests=tests
+          },
+      err=>
+      console.log(err,'err test')
+    )
   }
 
 }

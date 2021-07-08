@@ -4,6 +4,7 @@ import { AdminComponent } from './component/admin/admin.component';
 import { AuthImgComponent } from './component/auth-img/auth-img.component';
 import { AuthSMSComponent } from './component/auth-sms/auth-sms.component';
 import { CreateTestComponent } from './component/create-test/create-test.component';
+import { InternComponent } from './component/intern/intern.component';
 import { LandingDocumentComponent } from './component/landing-document/landing-document.component';
 import { LogInComponent } from './component/log-in/log-in.component';
 import { QuestionnaireDoneComponent } from './component/questionnaire-done/questionnaire-done.component';
@@ -29,7 +30,8 @@ const routes: Routes = [
   {path:'admin/create/:id/:password' ,component: AdminComponent},
   {path:'admin/login/:id/:password' ,component: AdminComponent},
   {path:'Supervisor' ,component: SupervisorComponent},
-  {path:'testing' ,component: CreateTestComponent}
+  {path:'testing' ,component: CreateTestComponent},
+  {path:'intern' ,component: InternComponent},
 ];
 
 @NgModule({
