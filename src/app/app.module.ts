@@ -27,6 +27,7 @@ import { SupervisorComponent } from './component/supervisor/supervisor.component
 import { TableComponent } from './component/table/table.component';
 import { CreateTestComponent } from './component/create-test/create-test.component';
 import { InternComponent } from './component/intern/intern.component';
+import { ModalCheckTestComponent } from './component/modal-check-test/modal-check-test.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { InternComponent } from './component/intern/intern.component';
     TableComponent,
     CreateTestComponent,
     InternComponent,
+    ModalCheckTestComponent,
    
    
     

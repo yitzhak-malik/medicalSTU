@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injector, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { academicModel, InternModel } from 'src/app/interfaces/intern-model';
 import { HttpServicService } from 'src/app/services/http-servic.service';
 import { TableService } from 'src/app/services/table.service';
+import { ModalCheckTestComponent } from '../modal-check-test/modal-check-test.component';
 
 @Component({
   selector: 'app-supervisor',
@@ -73,7 +75,7 @@ export class SupervisorComponent implements OnInit {
 
  ]
       
-  constructor(private http:HttpServicService,public table:TableService) {
+  constructor(private http:HttpServicService,public table:TableService, private modalService: NgbModal, private injector:Injector) {
   }
   
   ngOnInit(): void {
@@ -152,5 +154,27 @@ export class SupervisorComponent implements OnInit {
       console.log(err,'err test')
     )
   }
-
+  checkTest(test){
+    var downloadLink=document.createElement('a')
+    downloadLink.href=test.url
+    downloadLink.setAttribute('target','_blanck')
+    downloadLink.click()
+    console.log(test,'clicktest');
+   
+  }
+  open(test) {
+ 
+     
+    const modal=this.modalService.open(ModalCheckTestComponent)
+   
+  modal.componentInstance.test=test
+  modal .result.then((result) => {
+   // this.closeResult = `Closed with: ${result}`;
+   console.log('modal',result,test,modal);
+    
+  }, (reason) => {
+     //this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+  });
+  }
+  
 }

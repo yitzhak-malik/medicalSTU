@@ -46,4 +46,7 @@ export interface testModel extends Token{
     url?:String,
     score?:Number,
     role?:String,
+    name?:string,
+    id?:string,
+    note?:string,
 }

@@ -1,0 +1,30 @@
+<!-- the modal -->
+
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+      <h3>name intern:{{test.name}}</h3>
+      <h3>id :{{test.id}}</h3>
+    <form>
+      <div class="form-group">
+        <label for="score">score</label>
+        <div class="input-group">
+          <input type="number" min="0" max="100" id="score" class="form-control" placeholder="score" name="score" [(ngModel)]='test.score'  >
+        </div>
+        
+        <label for="note">note</label>
+        <div class="input-group">
+          <textarea  id="note" class="form-control" placeholder="note" name="note" [(ngModel)]='test.note' ></textarea>
+        </div>
+
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Save click'); saveScore()">Save</button>
+  </div>
+

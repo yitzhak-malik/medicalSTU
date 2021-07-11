@@ -112,7 +112,7 @@
                         <td>{{test.name}}</td>
                         <td>{{test.id}}</td>
                         <td>{{test.score}}</td>
-                        <td><button class="btn btn-warning" >check</button></td>
+                        <td><button class="btn btn-warning" (click)='checkTest(test); open(test)' >check</button></td>
                     </tr>
                 </ng-container>
 
@@ -121,7 +121,6 @@
     </table>
 
 </div>
-
 
 
 
