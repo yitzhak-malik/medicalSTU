@@ -26,6 +26,8 @@ export class SupervisorComponent implements OnInit {
       if(!this.academics[1]){
         this.academic=this.academics[0]['name']
         this.getInterns()
+        console.log(this.interns);
+        
       }
     })
     
@@ -47,8 +49,9 @@ export class SupervisorComponent implements OnInit {
 
   }
   createClass(){
-    
-    this.http.httpPost<any,any>('/api/supervisor/createClass',{namesInterns:this.table.newClass,academic:this.academic,nameClass:this.nameNewClass}).subscribe((classs)=>console.log(classs)
+    console.log(!this.classes.filter((oneclass)=>oneclass.name==this.nameNewClass))
+    this.http.httpPost<any,any>('/api/supervisor/createClass',{namesInterns:this.table.newClass,academic:this.academic,nameClass:this.nameNewClass})
+    .subscribe((classs)=>{console.log(classs); this.getClasses()}
     )
   }
   clear(){

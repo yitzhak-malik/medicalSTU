@@ -34,7 +34,8 @@ export class QuestionnaireService {
    }
    doneQuestionnaire(){
 console.log('done s work');
-
+     console.log(this.questionnaire);
+     
     this.http.httpPut<questionnaireModel,any>("/api/users/updateQuestionnaire",this.questionnaire).subscribe(data=>{
       console.log(data)
       this.router.navigate(['/Questionnaire1/2/3/done'])
