@@ -1,8 +1,41 @@
-<td class='col-4'>{{obj.fullName}}</td>
-<td class='col-4'>{{obj.id}}</td>
-<td class='col-4'> <button *ngIf='!createClass' class="btn btn-primary ml-4">visit</button>
-    <span *ngIf='createClass'>
-        <button *ngIf='add' class="btn btn-success ml-4" (click)='add=!add; adding()'>add</button>
-        <button *ngIf='!add' class="btn btn-danger ml-4" (click)='add=!add; remove()'>cancel</button>
-    </span>
-</td>
+
+<table  class="  table  table-bordered">
+    <thead>
+        <tr>
+            <th class=''> name</th>
+            <th class=''>id</th>
+            <th class=''></th>
+           
+        </tr>
+    </thead>
+    <tbody >
+        <ng-container *ngFor="let intern of interns">
+            <tr >
+                <td>{{intern.fullName}}</td>
+                <td>{{intern.id}}</td>
+                
+                <td class='col-4'> <button *ngIf='!createClass' class="btn btn-primary ml-4">visit</button>
+                    <span *ngIf='createClass'>
+                        <button *ngIf='!intern.click' class="btn btn-success ml-4" (click)='intern.click=!intern.click; adding(intern.id)'>add</button>
+                        <button *ngIf='intern.click' class="btn btn-danger ml-4" (click)='intern.click=!intern.click; remove(intern.id)'>cancel</button>
+                    </span>
+                </td>
+            </tr>
+            <!-- <ng-container *ngIf='test.k'>
+                <tr>
+                    <th>name</th>
+                    <th>id</th>
+                    <th>score</th>
+                    <th></th>
+                </tr>
+                <tr  *ngFor='let test of test.backTest'>
+                    <td>{{test.name}}</td>
+                    <td>{{test.id}}</td>
+                    <td>{{test.score}}</td>
+                    <td><button class="btn btn-warning" (click)='downloadLink(test); open(test)' >check</button></td>
+                </tr>
+            </ng-container> -->
+
+        </ng-container>
+    </tbody>
+</table>

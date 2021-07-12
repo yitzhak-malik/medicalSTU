@@ -64,26 +64,11 @@
 <div class="row m" *ngIf="interns[0]">
     <div class='col-5'>
 
-        <table class=" table  table-bordered">
-            <thead>
-                <tr>
-                    <th class="col-4">NAME</th>
-                    <th class="col-4">ID</th>
-                    <th class="col-4"></th>
-                </tr>
-            </thead>
-        </table>
-        <table class=" table  table-bordered">
-            <tbody>
-                <div *ngFor="let intern of interns">          
-                        <app-table class='row' [obj]=intern [createClass]='CreateNewClass'></app-table>
-                </div>
-            </tbody>
-
-        </table>
+   
+        <app-table class='row col-12' [interns]='interns'  [createClass]='CreateNewClass'></app-table>
     </div>
 
-    <table class="col-6 ml-4 col-5 table  table-bordered">
+    <table *ngIf='tests[0]' class="col-6 ml-4 col-5 table  table-bordered">
         <thead>
             <tr>
                 <th class=''>test name</th>
@@ -98,7 +83,7 @@
                     <td>{{test.testName}}</td>
                     <td>{{test.subject}}</td>
                     <td>{{test.date | date }}</td>
-                    <td><button class="btn btn-primary "  >Download</button></td>
+                    <td><button class="btn btn-primary " (click)='downloadLink(test)'  >Download</button></td>
                     <td ><mat-icon  (click)='test.k=!test.k' *ngIf='!test.k'>expand_more</mat-icon><mat-icon (click)='test.k=!test.k' *ngIf='test.k'>expand_less</mat-icon></td>
                 </tr>
                 <ng-container *ngIf='test.k'>
@@ -109,10 +94,10 @@
                         <th></th>
                     </tr>
                     <tr  *ngFor='let test of test.backTest'>
-                        <td>{{test.name}}</td>
+                        <td>{{test.internName}}</td>
                         <td>{{test.id}}</td>
                         <td>{{test.score}}</td>
-                        <td><button class="btn btn-warning" (click)='checkTest(test); open(test)' >check</button></td>
+                        <td><button class="btn btn-warning" (click)='downloadLink(test); open(test)' >check</button></td>
                     </tr>
                 </ng-container>
 

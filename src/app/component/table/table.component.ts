@@ -8,18 +8,22 @@ import { TableService } from 'src/app/services/table.service';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
- @Input() obj:InternModel;
+ 
+ @Input() interns:InternModel[];
  @Input() createClass:boolean
  add=true
-  constructor(private table:TableService) { }
+  constructor(private table:TableService) { 
+    console.log('this table');
+    
+  }
 
   ngOnInit(): void {
   }
-  adding(){
-    this.table.add(this.obj.id)
-  }
-  remove(){
-    this.table.remove(this.obj.id)
-  }
 
+  adding(id){
+    this.table.add(id)
+  }
+  remove(id){
+    this.table.remove(id)
+  }
 }
