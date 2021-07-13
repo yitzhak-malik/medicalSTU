@@ -39,3 +39,14 @@ export interface academicModel extends Token{
     academics?:string[]
     _id?:string
 }
+export interface testModel extends Token{
+    _idClass?:string,
+    testName?:String,
+    subject?:String,
+    url?:String,
+    score?:Number,
+    role?:String,
+    name?:string,
+    id?:string,
+    note?:string,
+}
