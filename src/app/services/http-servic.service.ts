@@ -8,7 +8,7 @@ import { Token } from '../interfaces/intern-model';
   providedIn: 'root'
 })
 export class HttpServicService {
-    baseURL:string='http://localhost:8080'
+    baseURL:string='https://malikstuapp.herokuapp.com'
     token:string=""
 
   constructor(private http:HttpClient ) {
