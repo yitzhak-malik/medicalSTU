@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
+  baseUrlServer:'https://malikstuapp.herokuapp.com',
    firebaseConfig:{
     apiKey: "AIzaSyA2XhOuiDtk-Vt6GXkzG0iUfvbaYBEXr_g",
     authDomain: "madical-jbh.firebaseapp.com",

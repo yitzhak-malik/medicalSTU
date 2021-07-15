@@ -77,7 +77,10 @@ export class SupervisorComponent implements OnInit {
 
  ]
       
-  constructor(private http:HttpServicService,public table:TableService, private modalService: NgbModal, private httpClient:HttpClient, private storge:AngularFireStorage) {
+  constructor(private http:HttpServicService,public table:TableService,
+     private modalService: NgbModal,
+      private httpClient:HttpClient,
+       private storge:AngularFireStorage) {
   }
   
   ngOnInit(): void {

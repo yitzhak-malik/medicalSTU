@@ -1,0 +1,21 @@
+
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">test</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+      <h3>supervisor name:{{test.supervisorName}}</h3>
+      <h3>test name:{{test.testName}}</h3>
+      <div>
+          <button type="button" class="btn btn-outline-dark" (click)='downloadLink();'>Download test</button>
+          <button type="button" class="btn btn-outline-dark ml-2" (click)="file.click()">choice the file of test</button>
+          <input style="display: none;" type="file" #file [(ngModel)]='theFile'>
+      </div>
+
+  </div>
+  <div class="modal-footer">
+    <button  type="button" class="btn btn-outline-dark" (click)="activeModal.close('Save click'); sendTest();">send the test</button>
+  </div>
+

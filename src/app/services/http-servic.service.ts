@@ -2,13 +2,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {tap }from 'rxjs/operators'
+import { environment } from 'src/environments/environment';
 import { Token } from '../interfaces/intern-model';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpServicService {
-    baseURL:string='https://malikstuapp.herokuapp.com'
+    baseURL:string=environment.baseUrlServer;
     token:string=""
 
   constructor(private http:HttpClient ) {

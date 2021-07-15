@@ -1,15 +1,27 @@
 <div class='row'>
     <div class='col-2'></div>
     <div class='col-8'>
-        <table class='table  table-bordered'>
+        <table class='table table-striped table-hover'>
             <thead>
                 <tr>
                     <th>test name</th>
                     <th>subject</th>
                     <th>supervisor</th>
-                    <th>score</th>
+                    <th>date</th>
+                    <th></th>
                 </tr>
             </thead>
+            <tbody>
+                <ng-container *ngFor ='let test of testsReceived'>
+                    <tr >
+                        <td>{{test.testName}}</td>
+                        <td>{{test.subject}}</td>
+                        <td>{{test.supervisorName}}</td>
+                        <td>{{test.date | date }}</td>
+                        <td><button class="btn btn-primary " (click)=' startTest(test)'  >start test</button></td>
+                    </tr>
+                </ng-container>
+            </tbody>
         </table>
     </div>
     <div class='col-2'></div>

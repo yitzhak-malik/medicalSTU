@@ -41,12 +41,16 @@ export interface academicModel extends Token{
 }
 export interface testModel extends Token{
     _idClass?:string,
-    testName?:String,
-    subject?:String,
-    url?:String,
+    testName?:string,
+    internName?:string,
+    supervisorName?:string,
+    subject?:string,
+    url?:string,
     score?:Number,
-    role?:String,
-    name?:string,
+    role?:string,
     id?:string,
     note?:string,
+    date?:number,
+    New?:number,
+    backTest?:testModel[]
 }

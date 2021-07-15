@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  baseUrlServer:'http://localhost:8080',
   firebaseConfig:{
     apiKey: "AIzaSyA2XhOuiDtk-Vt6GXkzG0iUfvbaYBEXr_g",
     authDomain: "madical-jbh.firebaseapp.com",
